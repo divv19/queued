@@ -1,0 +1,63 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queued App MVP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Login Screen -->
+    <div id="login-screen">
+        <div id="login-bg">
+            <h1>QD!</h1>
+            <h2>Login to Queued App</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <!-- Patient Appointment Screen -->
+    <div id="patient-screen" style="display: none;">
+        <h2>Welcome, Patient</h2>
+        <p>Your appointment with Dr. ABC</p>
+        <div id="appointment-details">
+            <p>Date: <span id="appointment-date">March 25, 2023</span></p>
+            <p>Time: <span id="appointment-time">10:00 AM</span></p>
+            <p>Queue Position: <span id="queue-position">5</span></p>
+            <p>Estimated Wait Time: <span id="wait-time">15 mins</span></p>
+        </div>
+        <button onclick="rescheduleAppointment()">Reschedule</button>
+        <button onclick="cancelAppointment()">Cancel Appointment</button>
+        <button onclick="waitAppointment()">Wait</button>
+        <button onclick="goBack()">Back to Login</button>
+    </div>
+
+    <!-- Receptionist Dashboard -->
+    <div id="receptionist-screen" style="display: none;">
+        <h2>Receptionist Dashboard</h2>
+        <form id="appointment-form">
+            <label for="patientName">Patient Name:</label>
+            <input type="text" id="patientName" placeholder="Enter patient name" required>
+            <label for="appointmentDate">Appointment Date:</label>
+            <input type="date" id="appointmentDate" required>
+            <label for="appointmentTime">Appointment Time:</label>
+            <input type="time" id="appointmentTime" required>
+            <label for="queuePosition">Queue Position:</label>
+            <input type="number" id="queuePosition" required>
+            <label for="estimatedWaitTime">Estimated Wait Time (mins):</label>
+            <input type="number" id="estimatedWaitTime" required>
+            <button type="button" onclick="addAppointment()">Add Appointment</button>
+        </form>
+        <div id="appointments">
+            <h3>Scheduled Appointments:</h3>
+            <ul id="appointment-list"></ul>
+        </div>
+        <button onclick="goBack()">Back to Login</button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
